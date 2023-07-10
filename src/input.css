@@ -1,0 +1,701 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-display: swap; 
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 300;
+    src: url("assets/fonts/sora-v11-latin_latin-ext-300.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap; 
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 400;
+    src: url("assets/fonts/sora-v11-latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap; 
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 500;
+    src: url("assets/fonts/sora-v11-latin_latin-ext-500.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap; 
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 600;
+    src: url("assets/fonts/sora-v11-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap; 
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 700;
+    src: url("assets/fonts/sora-v11-latin_latin-ext-700.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap; 
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 800;
+    src: url("assets/fonts/sora-v11-latin_latin-ext-800.woff2") format("woff2");
+}
+
+
+@layer base {
+    html { @apply
+        scroll-smooth
+        font-sora
+        text-zinc-800
+        text-html
+        max-sm:overflow-x-hidden
+        sm:text-html-sm
+        2xl:text-html-2xl;
+    }
+    h1 { @apply
+        text-h1
+        leading-10
+        font-extrabold
+        -tracking-0p;
+    }
+    h2 { @apply
+        text-h2
+        leading-[2.75rem]
+        font-bold
+        sm:text-2xl;
+    }
+    h3 { @apply
+        w-full
+        text-h3
+        leading-10
+        font-bold;
+    }
+    aside { @apply
+        max-xl:fixed
+        max-xl:z-20
+        xl:flex
+        xl:flex-col
+        xl:items-center
+        xl:relative
+        xl:mb-24
+        xl:col-4/5
+        xl:row-1/4;
+    }
+    article, main { @apply
+        col-2
+        relative
+        px-10
+        xl:col-3;
+    }
+    ul { @apply
+        flex
+        flex-wrap
+        flex-col
+        pt-8
+        pl-22
+        max-xl:pt-12
+        max-xl:pb-8
+        max-xl:gap-10;
+    }
+    ul li { @apply
+        max-sm:text-lgx
+        text-lg
+        font-light
+        tracking-px
+        w-fit
+        relative
+        xl:py-6;
+    }
+    ol { @apply
+        pl-5
+        list-latin
+        marker:font-bold;
+    }
+    header { @apply
+        col-1
+        row-1/5
+        pb-2
+        px-6
+        max-xl:pt-4
+        max-xl:w-full
+        max-xl:fixed
+        max-xl:z-10
+        max-xl:shadow-header
+        max-xl:bg-header
+        max-xl:border-b-1
+        max-xl:border-white/75
+        xl:pl-20
+        xl:pr-0
+        xl:pb-8;
+    }
+}
+
+
+@layer components {
+    .footer { @apply
+        flex
+        flex-wrap
+        pt-4
+        pb-8
+        flex-row
+        gap-2
+        col-4/5
+        opacity-85
+        w-full
+        text-footer
+        max-xl:justify-center
+        max-xl:items-center;
+    }
+    .cookie-wrapper { @apply
+        grid 
+        gap-4 
+        shadow-inner 
+        p-6 
+        rounded-3xl
+        grid-cols--min-content;
+    }
+    .cookie-button { @apply
+        row-2
+        w-fit
+        py-3
+        px-5
+        font-light
+        border
+        border-ang-border
+        rounded-lx;
+    }
+
+ /* ——— loader — header — offer ——— */
+
+    .loader { @apply
+        w-[48px]
+        h-[48px]
+        border-4
+        border-ang-dark
+        border-b-transparent
+        rounded-full
+        inline-block
+        box-border;
+    }
+    .unload { @apply
+        transform
+        translate-y-full
+        opacity-0
+        transition-unload;
+    }
+    .unload .loader { @apply 
+        opacity-0 
+        transition-unload-svg; 
+    }
+    .single-word { @apply
+        w-0
+        overflow-visible;
+    }
+    .header-link { @apply
+        mt-8
+        leading-5
+        -tracking-0px
+        whitespace-nowrap
+        hover:text-ang-light
+        text-2xl
+        max-xl:my-8
+        max-xl:font-bold
+        xl:font-caps
+        xl:text-lgx;
+    }
+    .menu { @apply 
+        flex
+        flex-col 
+        bg-white 
+        max-xl:fixed 
+        max-xl:left-0 
+        max-xl:mt-18.5 
+        max-xl:h-menu 
+        max-xl:w-full 
+        max-xl:top-0 
+        max-xl:items-center 
+        max-xl:justify-center;
+    }
+    .menu-button { @apply
+        h-18.5
+        p-4;
+    }
+    .--close { @apply
+        absolute
+        top-0
+        right-0
+        -mt-18.5
+        flex
+        items-center
+        bg-white
+        mr-6;
+    }
+    .expert-bio { @apply
+        max-sm:text-lgx
+        text-lg
+        leading-[2.5rem]
+        font-light
+        tracking-px
+        first-letter:font-semibold
+        first-letter:text-3.25xl
+        first-letter:text-ang-dark;
+    }
+    .offer-list-point { @apply
+        absolute
+        inline-block
+        mr-4
+        font-extrabold
+        text-ang-accent
+        -top-3
+        -left-24
+        text-6xl
+        max-xl:-top-8.5; 
+    }
+
+ /* ——————————— uslugi ———————————— */
+
+    .vector-link { @apply
+        flex
+        flex-col
+        items-center
+        relative
+        p-6
+        rounded-3xl
+        sm:min-w-[270px]
+        w-vector
+        transition-vector-link;
+    }
+    .vector { @apply
+        p-6
+        h-246
+        w-auto
+        max-w-fit
+        max-sm:h-140;
+    }
+    .vector-text { @apply
+        pt-4.5
+        font-semibold
+        text-lgx
+        text-center;
+    }
+    .quotes  { @apply
+        absolute
+        font-extrabold
+        text-ang-accent
+        text-14xl
+        transform
+        -rotate-3
+        h-1/2;
+    }
+    .citation { @apply
+        text-2xl
+        font-extrabold
+        text-ang-dark
+        tracking-px;
+    }
+
+ /* ——————————— stats ————————————— */
+
+    .stats-container { @apply
+        p-2
+        w-full
+        rounded-full
+        shadow-outer
+        xl:mb-4;
+    }
+    .stats { @apply
+        flex
+        flex-col
+        justify-center
+        items-center
+        text-center
+        rounded-full
+        w-full
+        relative
+        shadow-stats
+        h-34
+        xl:h-42;
+    }
+    .circle { @apply
+        transform 
+        -rotate-90 
+        origin-[50%_50%];
+    }
+    .stats-number-wrapper { @apply
+        flex
+        justify-center
+        items-center
+        rounded-full
+        bg-white
+        shadow-outer
+        max-sm:w-stats-number-wrapper-max-sm
+        max-sm:h-stats-number-wrapper-max-sm
+        w-stats-number-wrapper
+        h-stats-number-wrapper
+        xl:w-stats-number-wrapper-xl
+        xl:h-stats-number-wrapper-xl;
+    }
+    .stats-number { @apply
+        text-2xl
+        font-bold
+        tracking-px;
+    }
+
+ /* ——————————— reviews ————————————— */
+
+    .neo-wrapper { @apply
+        p-6
+        rounded-3xl
+        shadow-neo;
+    }
+    .reviews { @apply
+        flex-col
+        justify-start
+        items-center
+        relative
+        h-full
+        rounded-2xl
+        overflow-y-clip
+        py-8
+        px-18;
+    }
+    .reviews-header { @apply
+        flex
+        justify-between
+        w-full;
+    }
+    .reviews-author-wrapper { @apply
+        flex
+        self-start;
+    }
+    .reviews-author-logo { @apply
+        h-9
+        w-9
+        rounded-full
+        flex
+        justify-center
+        items-center
+        mr-2
+        text-white
+        font-semibold
+        text-s;
+    }
+    .reviews-author { @apply
+        text-xl
+        -top-12;
+    }
+    .reviews-icon-google { @apply
+        m-px
+        h-9
+        w-9;
+    }
+    .reviews-rating-wrapper { @apply
+        flex
+        justify-between
+        items-center
+        w-full
+        h-9;
+    }
+    .reviews-icon-stars { @apply
+        w-28
+        -ml-1;
+    }
+    .reviews-count { @apply
+        font-light
+        tracking-px
+        text-s;
+    }
+    .reviews-text { @apply
+        mt-4
+        webkit-box
+        overflow-hidden
+        text-s
+        font-light
+        leading-8
+        tracking-px
+        text-ellipsis
+        text-left
+        max-sm:text-lg
+        max-sm:leading-10
+        max-sm:webkit-sm
+        2xl:webkit-2xl;
+    }
+    .reviews-arrow { @apply
+        absolute
+        text-ang-accent
+        top-1/2
+        text-3xl
+        xl:text-2xl;
+    }
+
+ /* ——————————— form ————————————— */
+
+    .form-link { @apply
+        flex
+        flex-col
+        items-center
+        justify-center
+        w-1/2
+        py-2
+        px-1.25
+        border
+        border-ang-border
+        shadow-link
+        transition-shadow
+        hover:shadow-link-hover
+        hover:transition-shadow
+        max-xl:h-36
+        xl:text-s;
+    }
+    .phone-number { @apply
+        text-md
+        relative;
+    }
+    .email-name { @apply
+        text-s
+        tracking-px;
+    }
+    .form-input-container { @apply
+        relative
+        flex
+        items-center;
+    }
+    .form-input-label { @apply
+        absolute
+        -z-10
+        w-label
+        pl-4
+        opacity-75
+        font-light
+        origin-[10%_-150%];
+    }
+    .form-input-label.--main { @apply
+        transition-label-main;
+    }
+    .form-input-label.--help { @apply
+        right-0
+        text-right
+        transform
+        transition-label-help
+        scale-[.75]
+        origin-[75%_-245%];
+    }
+    .checkbox { @apply
+        text-s
+        font-light
+        max-xl:-mb-1
+        xl:text-footer-xl;
+    }
+    .form-button { @apply
+        py-4.5
+        px-14
+        font-semibold
+        text-white
+        w-full
+        text-lg
+        rounded-lx
+        mt-10
+        mb-4
+        bg-ang-light
+        shadow-btn
+        transition-btn
+        xl:mt-8
+        xl:py-3.5
+        xl:text-s;
+    }
+    .form-button.--disabled { @apply
+        border
+        border-[#7080903b]
+        text-[#96a4b3]
+        bg-white
+        font-normal;
+    }
+    .form-input { @apply
+        w-full
+        pt-7
+        pb-4
+        px-4
+        font-light
+        bg-transparent
+        border-b-1
+        border-ang-border
+        rounded-none
+        focus:input-focus
+        max-xl:text-[16px]
+        xl:pb-2.5; 
+    }
+    input::placeholder { @apply
+        text-zinc-800
+        tracking-px
+        text-footer
+        font-medium
+        opacity-85;
+    }
+    .result-container { @apply
+        flex
+        items-center
+        absolute
+        bottom-0
+        right-0
+        px-6
+        h-full
+        text-white
+        text-shadow
+        rounded-3xl
+        bg-result
+        transition-result
+        backdrop-blur-[10px];
+    }
+    .result { @apply
+        text-lg
+        leading-9
+        font-bold
+        tracking-px 
+        text-center;
+    }
+}
+                                
+
+@layer utilities {
+    .border-b-1 {
+        border-bottom-width: 1px;
+    }
+    .border-tb-1 {
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+    }
+    .font-caps {
+        font-variant: all-small-caps;
+    }
+    .text-shadow {
+        text-shadow: 2px 2px hsla(0, 75%, 8%, .35);
+    }
+    .webkit-box {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 18;
+    }
+    .webkit-2xl {
+        -webkit-line-clamp: 20;
+    }
+    .webkit-sm {
+        -webkit-line-clamp: 8;
+    }
+    .scale-65 {
+        transform: scale(.65);
+    }
+    .scale-1 {
+        transform: scale(1);
+    }
+    .opacity-1 {
+        opacity: 1;
+    }
+    .outline-active {
+        outline: 1px solid red;
+        border-radius: 3px;
+    }
+    .word-0px {
+        word-spacing: 0.5px;
+    }
+    .word-px {
+        word-spacing: 1px;
+    }
+    .--previous { @apply
+        left-5;
+    }
+    .--next { @apply
+        right-5;
+    }
+    .stroke-5 {
+        stroke-width: 5px;
+    }
+    .stroke-7 {
+        stroke-width: 7px;
+    }
+    .stroke-9 {
+        stroke-width: 9px;
+    }
+    .stroke-13 {
+        stroke-width: 13px;
+    }
+    .grid-cols--min-content {
+        grid-template-columns: min-content;
+    }
+
+
+    .circle-animation {
+        animation: 3s progress cubic-bezier(.23,-0.05,.68,.68);
+    }
+    @keyframes progress {
+        0% { stroke-dashoffset: 500; }
+        100% { stroke-dashoffset: 0; }
+    }
+    .animation-loader {
+        animation: rotation 1s linear infinite;
+    }
+    @keyframes rotation {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    } 
+
+
+    .transition-unload { 
+        transition: .5s transform .25s ease-in-out, 1s opacity .25s ease-in-out;
+    }
+    .transition-unload-svg {
+        transition: opacity .25s ease-in-out;
+    }
+    .transition-vector-link {
+        transition: box-shadow 1.35s ease;
+    }
+    .transition-btn {
+        transition: box-shadow .15s cubic-bezier(0.4, 0, 0.2, 1), background-color .15s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+    .transition-label-main {
+        transition: transform .3s ease-in-out;
+    }
+    .transition-label-help {
+        transition: opacity .4s ease-out;
+    }
+    .transition-result {
+        transition: background-color .3s ease-in-out, opacity .3s ease-in-out;
+    }
+    
+
+    .input-focus {
+        border-color: transparent;
+        outline: 1px solid hsl(338, 70%, 35%);
+        border-radius: .125rem;
+    }
+    input:focus::placeholder {
+        font-size: .5rem;
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+    input:focus::-webkit-input-placeholder {
+        font-size: .5rem;
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+    input:focus:-moz-placeholder {
+        font-size: .5rem;
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+    input:focus::-moz-placeholder {
+        font-size: .5rem;
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+    input:focus:-ms-input-placeholder {
+        font-size: .5rem;
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+
+}
